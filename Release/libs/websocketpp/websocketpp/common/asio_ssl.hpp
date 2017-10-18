@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, Peter Thorson. All rights reserved.
+ * Copyright (c) 2015, Peter Thorson. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -25,47 +25,15 @@
  *
  */
 
-#ifndef WEBSOCKETPP_ERROR_MESSAGE_HPP
-#define WEBSOCKETPP_ERROR_MESSAGE_HPP
+#ifndef WEBSOCKETPP_COMMON_ASIO_SSL_HPP
+#define WEBSOCKETPP_COMMON_ASIO_SSL_HPP
 
-namespace websocketpp {
+// NOTE: This file must be included before common/asio.hpp
 
-/**
- * The transport::security::* classes are a set of security/socket related
- * policies and support code for the ASIO transport types.
- */
-class error_msg {
-public:
-	const std::string& get_msg() const {
-		return m_error_msg;
-	}
+#ifdef ASIO_STANDALONE
+    #include <asio/ssl.hpp>
+#else
+    #include <boost/asio/ssl.hpp>
+#endif
 
-	void set_msg(const std::string& msg) {
-		m_error_msg = msg;
-	}
-
-	void append_msg(const std::string& msg) {
-		m_error_msg.append(msg);
-	}
-
-	template <typename T>
-	void set_msg(const T& thing) {
-		std::stringsteam val;
-		val << thing;
-		this->set_msg(val.str());
-	}
-
-	template <typename T>
-	void append_msg(const T& thing) {
-		std::stringsteam val;
-		val << thing;
-		this->append_msg(val.str());
-	}
-private:
-	// error resources
-	std::string		m_error_msg;
-};
-
-} // namespace websocketpp
-
-#endif // WEBSOCKETPP_ERROR_MESSAGE_HPP
+#endif // WEBSOCKETPP_COMMON_ASIO_SSL_HPP
