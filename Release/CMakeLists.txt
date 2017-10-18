@@ -215,7 +215,7 @@ if (NOT CPPREST_EXCLUDE_WEBSOCKETS)
 endif()
 
 set(Casablanca_LIBRARY cpprest)
-set(Casablanca_LIBRARIES cpprest ${Boost_LIBRARIES} PARENT_SCOPE)
+set(Casablanca_LIBRARIES cpprest ${Boost_LIBRARIES})
 
 # Everything in the project needs access to the casablanca include directories
 include_directories(       ${Casablanca_INCLUDE_DIRS})
