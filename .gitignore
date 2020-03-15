@@ -75,3 +75,6 @@ Generated Files/
 Build_iOS/Apple-Boost-BuildScript
 
 /out/
+
+build_x64_v141_Debug
+build_x64_v141_Release
