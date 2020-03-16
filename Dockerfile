@@ -13,7 +13,7 @@ COPY . /cpprestsdk
 COPY --from=env_openssl /usr/local/lib /usr/local/lib
 COPY --from=env_openssl /usr/local/include /usr/local/include
 
-RUN cd /cpprestsdk/Release \
+RUN cd /cpprestsdk \
   && mkdir build.release \
   && cd build.release \
   && cmake .. -DCMAKE_BUILD_TYPE=Release -DWERROR=OFF \
