@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  cpprestsdk:
+    image: cpprestsdk_debug:2.10.15
+    build:
+      context: .
+      dockerfile: Dockerfile-Debug
+      args:
+        - boost_version=1.72.0
+        - openssl_version=1.1.1d
+        - num_cores=4
