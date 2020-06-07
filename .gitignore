@@ -76,5 +76,5 @@ Build_iOS/Apple-Boost-BuildScript
 
 /out/
 
-build_x64_v141_Debug
-build_x64_v141_Release
+build_x64_*_Debug
+build_x64_*_Release
