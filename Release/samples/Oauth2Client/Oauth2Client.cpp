@@ -29,15 +29,15 @@ Set following entry in the hosts file:
 #include "cpprest/http_client.h"
 #include <mutex>
 
+#include "cpprest/http_client.h"
+#include "cpprest/http_listener.h"
+
 #if defined(_WIN32) && !defined(__cplusplus_winrt)
 // Extra includes for Windows desktop.
 #include <windows.h>
 
 #include <Shellapi.h>
 #endif
-
-#include "cpprest/http_client.h"
-#include "cpprest/http_listener.h"
 
 using namespace utility;
 using namespace web;
