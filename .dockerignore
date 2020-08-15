@@ -1,0 +1,6 @@
+.vscode
+azure-devops
+Build_android
+Build_iOS
+build_*
+vcpkg
