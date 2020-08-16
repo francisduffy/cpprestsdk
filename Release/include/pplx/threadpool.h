@@ -63,7 +63,7 @@ public:
     /// a diamond problem with multiple consumers attempting to customize the pool.
     /// </remarks>
     /// <exception cref="std::exception">Thrown if the threadpool has already been initialized</exception>
-    static void initialize_with_threads(size_t num_threads);
+    _ASYNCRTIMP static void initialize_with_threads(size_t num_threads);
 
     template<typename T>
     CASABLANCA_DEPRECATED("Use `.service().post(task)` directly.")
