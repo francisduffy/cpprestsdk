@@ -1,26 +1,18 @@
 ARG openssl_version=latest
-ARG boost_version=latest
-
-FROM openssl_debug:${openssl_version} as env_openssl
-
-FROM build_env_boost_debug:${boost_version}
+FROM openssl_debug:${openssl_version}
 
 ARG num_cores
 
-COPY . /cpprestsdk
+COPY . /lib_src/cpprestsdk
 
-# Copy the openssl and zlib elements from env_openssl
-COPY --from=env_openssl /usr/local/lib /usr/local/lib
-COPY --from=env_openssl /usr/local/include /usr/local/include
-
-RUN cd /cpprestsdk \
+RUN cd /lib_src/cpprestsdk \
   && mkdir build.debug \
   && cd build.debug \
   && cmake .. -DCMAKE_BUILD_TYPE=Debug -DWERROR=OFF \
   && make -j ${num_cores} \
   && make install \
   && cd / \
-  && rm -rf cpprestsdk \
+  && rm -rf /lib_src/cpprestsdk/build.debug \
   && ldconfig
 
 CMD bash
